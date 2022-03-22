@@ -1,0 +1,21 @@
+{
+  "type": "mysql",
+  "host": "bald-wars-database",
+  "port": 3306,
+  "username": "root",
+  "password": "password",
+  "database": "bald-wars",
+  "synchronize": true,
+  "logging": false,
+  "entities": [
+    "src/api/users/user.ts",
+    "src/api/characters/character.ts",
+    "src/api/battles/battle.ts"
+  ],
+  "migrations": [
+    "src/migration/**/*.ts"
+  ],
+  "subscribers": [
+    "src/subscriber/**/*.ts"
+  ]
+}
