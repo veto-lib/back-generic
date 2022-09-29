@@ -1,18 +1,20 @@
 import { buildRoutes, Path } from '../utils';
 
-import usersRoutes from './users/users.routes';
-import charactersRoutes from './characters/character.routes';
-import battlesRoutes from './battles/battles.routes';
-import qualityRoutes from './quality/quality.routes';
+import customersRoutes from './customers/customers.routes';
+import veterinariesRoutes from './veterinaries/veterinaries.routes';
+import eventsRoutes from './events/events.routes';
+import adminRoutes from './admin/admin.routes';
+import clinicRoutes from './clinic/clinic.routes';
 
 /**
  * The routes to mount on /api.
  */
 const paths: Path[] = [
-  { path: '/users', routes: usersRoutes },
-  { path: '', routes: charactersRoutes },
-  { path: '/battles', routes: battlesRoutes },
-  { path: '', routes: qualityRoutes }
+  { path: '/customers', routes: customersRoutes },
+  { path: '/veterinaries', routes: veterinariesRoutes },
+  { path: '/events', routes: eventsRoutes },
+  { path: '/admin', routes: adminRoutes },
+  { path: '/clinic', routes: clinicRoutes }
 ];
 
 const router = buildRoutes(paths);

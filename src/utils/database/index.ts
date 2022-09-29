@@ -1,1 +1,1 @@
-export { databaseConnection } from './database-connection';
+export { dataSource } from './datasource';

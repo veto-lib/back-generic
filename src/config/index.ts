@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-dotenv.config({ path: '../.env' });
+dotenv.config({ path: '.env' });
 
 /**
  * Application configuration object.
@@ -22,13 +22,10 @@ export const CONFIG = {
     port: +(process.env.DATABASE_PORT ?? 3306),
     host: process.env.DATABASE_HOST,
     dbName: process.env.DATABASE_DBNAME,
-    password: process.env.MYSQL_ROOT_PASSWORD
-  },
-  sandbox: {
-    host: process.env.SANDBOX_HOST,
-    port: process.env.SANDBOX_PORT,
-    get url(): string {
-      return `http://${this.host}:${this.port}`;
-    }
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    ssl: JSON.parse(process.env.DATABASE_SSL ?? 'false')
+      ? { rejectUnauthorized: false }
+      : false
   }
 };

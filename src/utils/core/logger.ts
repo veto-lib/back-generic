@@ -27,5 +27,10 @@ export const logger = {
   /**
    * Logs simple message on the standard output.
    */
-  log: (message: object | string | number) => stdout.log(message.toString())
+  log: (message: object | string | number) => stdout.log(message.toString()),
+
+    /**
+   * Debug message without formatting
+   */
+     debug: (message: unknown) => stdout.log(message)
 };

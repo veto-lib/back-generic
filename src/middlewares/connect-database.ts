@@ -1,6 +1,6 @@
 import { Request, NextFunction } from 'express';
 
-import { databaseConnection } from '../utils';
+import { dataSource } from '../utils';
 
 /**
  * Mongo Database connection middleware.
@@ -11,10 +11,7 @@ export const connectDatabase = (callback: (...args: any) => Promise<any>) => asy
   request: Request, {}, next: NextFunction
 ) => {
   try {
-    if (!request.app.locals.db) {
-      request.app.locals.db = await databaseConnection();
-    }
-    const result = await callback(request.app.locals.db, request);
+    const result = await callback(dataSource, request);
     request.app.locals.result = result;
     next();
   } catch (error) {
